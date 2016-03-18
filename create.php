@@ -21,9 +21,20 @@
 
 			<h3>Champion Skills</h3>
 			<input type='text' name='skill1' placeholder='Skill 1'><br>
+
+			<textarea rows='3' cols='35' name='description1' placeholder='Skill 1 Description'></textarea><br>
+
 			<input type='text' name='skill2' placeholder='Skill 2'><br>
+
+			<textarea rows='3' cols='35' name='description2' placeholder='Skill 2 Description'></textarea><br>
+
 			<input type='text' name='skill3' placeholder='Skill 3'><br>
+			
+			<textarea rows='3' cols='35' name='description3' placeholder='Skill 3 Description'></textarea><br>
+
 			<input type='text' name='skill4' placeholder='Skill 4'><br>
+
+			<textarea rows='3' cols='35' name='description4' placeholder='Skill 4 Description'></textarea><br>
 
 			<input type='submit' value='Create New Champion!'>
 		</div>
