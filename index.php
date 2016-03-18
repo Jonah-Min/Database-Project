@@ -17,7 +17,8 @@
 <head>
 
 	<link rel='stylesheet' type='text/css' href='league.css'>
-	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+
 	
 </head>
 
@@ -42,14 +43,16 @@
 						. $row['champimg'] . "'/>";	 
 				}
 			?>
-			
+
 		</div>
 	</form>
 
 	<div id='footer'>
+	<form method='post' action='create.php'>
 		<div id='create'>
 			<input type='submit' value='Create New'/>
 		</div>
+	</form>
 	</div>
 
 </body>
