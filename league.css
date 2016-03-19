@@ -24,7 +24,7 @@ input[type='image'] {
 }
 
 input[type='image']:hover {
-	border-color: #515E67 #5F6970 #70787D #8A979F;
+	border-color: #FFFFFF #CECECE #7F7F7F #606161;
 }
 
 #header {
