@@ -14,9 +14,11 @@
 	$result = mysql_query($skinquery);
 
 	$skins = array();
+	$skinnames = array();
 
 	while ($row = mysql_fetch_array($result)) {
 		array_push($skins, $row['url']);
+		array_push($skinnames, $row['skinname']);
 	}
 
 	$champinfo = "SELECT primaryrole, secondaryrole FROM champion WHERE champname='$value'";
@@ -52,7 +54,9 @@
 <body>
 
 	<div id='container'>
-		<p id='name'> <?php echo $value ?> </p><br><br><br><br>
+		<p id='name'> <?php echo $value ?> </p>
+		<a href='delete.php'>Delete</a>
+		<a href='update.php'>Update</a><br><br><br><br>
 
 		<span class='role'><?php echo $primary ?> </span><br>
 		<span class='role'><?php echo $secondary ?> </span>
@@ -82,6 +86,27 @@
 
 				?>
 			</tr>
+		</table>
+
+		<table id='skins'>
+
+			<p class='title2'>Skins</p>
+
+			<?php
+
+				array_shift($skins);
+				array_shift($skinnames);
+				
+				for ($i = 0; $i < sizeof($skins); $i++) {
+					echo "<div class='skindiv'><p class='skinname'>"
+							. $skinnames[$i] .
+							"</p><div class='image'><img class='skin' src='" 
+							. $skins[$i] .
+							"'></div></div>";
+				}
+
+			?>
+
 		</table>
 
 

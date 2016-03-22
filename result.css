@@ -1,10 +1,32 @@
 #container {
 	background-color: #D9D9D9;
 	border: 10px solid #373636;
-	height: 90%;
 	width: 500px;
+	min-height: 90%;
+	overflow: hidden;
 	margin-left: 25px;
 	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+a {
+	float: right;
+	margin-top: 20px;
+	margin-right: 25px;	
+	color: #373636;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	font-size: 12pt;
+	-o-transition:color .2s ease-out, background 1s ease-in;
+  	-ms-transition:color .2s ease-out, background 1s ease-in;
+  	-moz-transition:color .2s ease-out, background 1s ease-in;
+  	-webkit-transition:color .2s ease-out, background 1s ease-in;
+  	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background 1s ease-in;
+}
+
+a:hover {
+	color: white;
 }
 
 #name {
@@ -53,7 +75,41 @@
 	margin-bottom: 10px;
 }
 
+.title2 {
+	text-align: center;
+	color: #373636;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18pt;
+	height: 1px;
+}
+
 .icon {
 	margin: 10px 10px 10px 10px;
 	border: 2px solid #373636;
+}
+
+.skinname {
+	text-align: center;
+	color: #373636;
+	font-family: 'Raleway', sans-serif;
+	font-size: 14pt;
+	margin-bottom: 15px;
+}
+
+.skindiv {
+	width: 250px;
+	height: 225px;
+	float: left;
+}
+
+.skin {
+	width: 200px;
+	height: 125px;
+	border: 3px solid black;
+}
+
+.image {
+	width: 200px;
+	height: 125px;
+	margin-left: 22px;
 }
