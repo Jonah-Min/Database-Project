@@ -35,12 +35,10 @@
 
 			<?php	
 				while ($row = mysql_fetch_array($result)) {	
-					echo  "<input type='image' id='button' name='button' value='" 
-						. $row['champname'] .
-						"' data-type='tooltip' title='" 
-						. $row['champname'] . 
-						"' width='100' height='100' src='" 
-						. $row['champimg'] . "'>";	 
+					echo  "<span class='tooltip'><input type='image' id='button' name='button' value='" 
+						. $row['champname'] . "' width='100' height='100' src='" 
+						. $row['champimg'] . "'><span>"
+						. $row['champname'] . "</span></span>";	 
 				}
 			?>
 

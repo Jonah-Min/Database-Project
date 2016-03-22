@@ -40,6 +40,8 @@
 
 	<link rel='stylesheet' type='text/css' href='result.css'>
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<style>
 		body {
@@ -48,6 +50,12 @@
 			background-size: 100%;
 		}
 	</style>
+
+	<script>
+		$(document).ready(function(){
+    		$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 
 </head>
 
@@ -76,12 +84,12 @@
 				<?php
 
 					while ($row = mysql_fetch_array($skills)) {
-						echo "<td align='center' class='tablecell'><img class='icon' data-type='tooltip' title='"
-								. $row['skillname'] . "\n\n"
-								. $row['skilldesc'] .
-								"' src='"
+						echo "<td align='center' class='tablecell'><span class='tooltip'><img class='icon' src='"
 								. $row['skillimg'] . 
-								"' width='50' height='50'></td>";
+								"' width='50' height='50'><span class='tooltipcontent'><strong>"
+								. $row['skillname'] . "</strong><br>"
+								. $row['skilldesc'] . 
+								"</span></span></td>";
 					}
 
 				?>
