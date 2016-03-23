@@ -47,13 +47,22 @@
 		body {
 			background: url(<?php echo $skins[0]?>);
 			background-attachment: fixed;
-			background-size: 100%;
+			background-size: cover;
+			-webkit-transition: background 0.5s linear;
+			-moz-transition: background 0.5s linear;
+			-o-transition: background 0.5s linear;
+			-ms-transition: background 0.5s linear;
+			transition: background 0.5s linear;
 		}
 	</style>
 
 	<script>
 		$(document).ready(function(){
-    		$('[data-toggle="tooltip"]').tooltip();   
+
+			$('.skin').on('click', function() {
+				$('body').css('background-image', 'url(' + $(this).attr('src') + ')');
+			});
+
 		});
 	</script>
 
@@ -101,9 +110,6 @@
 			<p class='title2'>Skins</p>
 
 			<?php
-
-				array_shift($skins);
-				array_shift($skinnames);
 				
 				for ($i = 0; $i < sizeof($skins); $i++) {
 					echo "<div class='skindiv'><p class='skinname'>"
