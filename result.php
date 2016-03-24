@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	$connect = mysql_connect('localhost', 'root', '');
 
 	if (!$connect) {
@@ -27,6 +29,8 @@
 
 	$primary = $info['primaryrole'];
 	$secondary = $info['secondaryrole'];
+
+	$_SESSION['champ'] = $value;
 
 	$skills = "SELECT * FROM skills WHERE champname='$value'";
 	$skills = mysql_query($skills);
