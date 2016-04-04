@@ -1,81 +1,136 @@
 <?php
-	
-	$champname = $_POST['champion'];
 
-	echo $champname . "<br>";
+	session_start();
 
-	$champimg = $_POST['championimg'];
+	$connect = mysql_connect('localhost', 'root', '');
 
-	echo $champimg . "<br>";
+	if (!$connect) {
+		die('Could Not Connect: ' . mysql_error());
+	}
 
-	$primary = $_POST['primary'];
+	mysql_select_db('league');
 
-	echo $primary . "<br>";
+	$name = $_SESSION['champ'];
+	$skin = $_SESSION['background'];
 
-	$secondary = $_POST['secondary'];
+	$query = "SELECT primaryrole, secondaryrole FROM champion WHERE champname='$name'";
+	$query2 = "SELECT skillnumber, skillname, skilldesc FROM skills WHERE champname='$name'";
+	$query3 = "SELECT attack_range, attack_damage, hp, hp_regen, armor FROM stats WHERE champname='$name'";
 
-	echo $secondary . "<br>";
+	$result = mysql_query($query);
+	$result2 = mysql_query($query2);
+	$result3 = mysql_query($query3);
 
-	$passive = $_POST['passive'];
-
-	echo $passive . "<br>";
-
-	$passiveimg = $_POST['passiveimg'];
-
-	echo $passiveimg . "<br>";
-
-	$passivedesc = $_POST['passivedesc'];
-
-	echo $passivedesc . "<br>";
-
-	$skill1 = $_POST['skill1'];
-
-	echo $skill1 . "<br>";
-
-	$skill1url = $_POST['skill1url'];
-
-	echo $skill1url . "<br>";
-	
-	$description1 = $_POST['description1'];
-
-	echo $description1 . "<br>";
-
-	$skill2 = $_POST['skill2'];
-
-	echo $skill2 . "<br>";
-
-	$skill2url = $_POST['skill2url'];
-
-	echo $skill2url . "<br>";
-	
-	$description2 = $_POST['description2'];
-
-	echo $description2 . "<br>";
-
-	$skill3 = $_POST['skill3'];
-
-	echo $skill3 . "<br>";
-
-	$skill3url = $_POST['skill3url'];
-
-	echo $skill3url . "<br>";
-	
-	$description3 = $_POST['description3'];
-
-	echo $description3 . "<br>";
-
-	$skill4 = $_POST['skill4'];
-
-	echo $skill4 . "<br>";
-
-	$skill4url = $_POST['skill4url'];
-
-	echo $skill4url . "<br>";
-	
-	$description4 = $_POST['description4'];
-
-	echo $description4 . "<br>";
-
-
+	$roles = mysql_fetch_array($result);
+	$stats = mysql_fetch_array($result3);
 
 ?>
+
+<html>
+<head>
+
+	<link rel='stylesheet' href='result.css' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+	<style>
+		body {
+			background: url(<?php echo $skin ?>);
+			background-attachment: fixed;
+			background-size: cover;
+			-webkit-transition: background 0.5s linear;
+			-moz-transition: background 0.5s linear;
+			-o-transition: background 0.5s linear;
+			-ms-transition: background 0.5s linear;
+			transition: background 0.5s linear;
+		}
+	</style>
+
+</head>
+<body>
+
+	<form method='post' action='newvalues.php'>
+
+	<div id='container'>
+		
+		<div id='header'>
+			<p id='champ'> Update Existing Champion </p>
+			<p id='championname'> <?php echo $name ?> </p>
+		</div>	
+
+		<table id='skills'>
+
+			<tr>
+
+				<td> 
+					<p class='change'> Primary Role </p>
+				</td>
+				<td>
+					<input type='text' name='primary' placeholder='Current: <?php echo $roles['primaryrole'] ?>'>
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<p class='change'> Secondary Role </p>
+				</td>
+				<td>
+					<input type='text' name='secondary' placeholder='Current: <?php echo $roles['secondaryrole'] ?>'>
+				</td>
+
+			</tr>
+
+			<?php
+
+				while ($row = mysql_fetch_array($result2)) {
+					echo "<tr>";
+					if ($row['skillnumber'] == 0) {
+						echo "<td><p class='change'>Passive</p></td>";
+						echo "<td><input type='text' name='passivename' placeholder='Current: " . $row['skillname'] . "'><br>";
+						echo "<textarea rows='3' cols='30' name='passivedesc' placeholder='Current: " . $row['skilldesc'] . "'></textarea><br></td>";
+					} else {
+						echo "<td><p class='change'>Skill " . $row['skillnumber'] . "</p></td>";
+						echo "<td><input type='text' name='skill[]' placeholder='Current: " . $row['skillname'] . "'><br>";
+						echo "<textarea rows='3' cols='30' name='passivedesc' placeholder='Current: " . $row['skilldesc'] . "'></textarea><br></td>";
+					}
+					echo "</tr>";
+				}
+
+			?>
+
+			<tr>
+				<td><p class='change'>Attack Range</p></td>
+				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['attack_range'] ?>"></td>
+			</tr>
+
+			<tr>
+				<td><p class='change'>Attack Damage</p></td>
+				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['attack_damage'] ?>"></td>
+			</tr>
+
+			<tr>
+				<td><p class='change'>HP</p></td>
+				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['hp'] ?>"></td>
+			</tr>
+
+			<tr>
+				<td><p class='change'>HP Regen</p></td>
+				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['hp_regen'] ?>"></td>
+			</tr>			
+
+			<tr>
+				<td><p class='change'>Armor</p></td>
+				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['armor'] ?>"></td>
+			</tr>
+
+			<tr>
+				<td colspan='2'><input type='submit'></td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	</form>
+
+</body>

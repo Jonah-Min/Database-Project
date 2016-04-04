@@ -31,10 +31,10 @@
 	$secondary = $info['secondaryrole'];
 
 	$_SESSION['champ'] = $value;
+	$_SESSION['background'] = $skins[0];
 
 	$skills = "SELECT * FROM skills WHERE champname='$value'";
 	$skills = mysql_query($skills);
-
 
 ?>
 

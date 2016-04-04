@@ -14,6 +14,64 @@
             animation: fadein 2s;
 }
 
+#championname {
+	font-family: 'Raleway', sans-serif;
+	font-size: 15pt;
+	color: #373636;
+	text-align: center;
+}
+
+input[type='text'] {
+	text-align: center;	
+	display: inline-block;
+	vertical-align: middle;
+	margin: 2px auto;
+	width: 200px;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+}
+
+input[type='submit']:hover {
+	background: #dfad4e;
+}
+
+input[type='submit'] {
+	width: 250px;
+	height: 37px;
+	font-size: 12pt;
+	border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
+    background: #d79922;
+    color: #222222;
+    font-family: "Adobe Garamond Pro", Garamond, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    padding: 6px 20px 4px 20px;
+    line-height: 100%;
+    cursor: pointer;
+    display: block;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 25px;
+}
+
+#champ {
+	font-family: 'Raleway', sans-serif;
+	font-size: 20pt;
+	color: #373636;
+	text-align: center;
+}
+
+.change {
+	font-family: 'Raleway', sans-serif;
+	font-size: 10pt;
+	color: #373636;
+	text-align: center;
+	padding: 5px;
+}
+
 a {
 	float: right;
 	margin-top: 20px;
