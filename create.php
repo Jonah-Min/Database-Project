@@ -92,6 +92,31 @@
 			</tr>	
 
 			<tr>
+				<td><h3>Attack Range</h3></td>
+				<td><input type='text' name='attackrange' placeholder="Attack Range"></td>
+			</tr>
+
+			<tr>
+				<td><h3>Attack Damage</h3></td>
+				<td><input type='text' name='damage' placeholder="Attack Damage"></td>
+			</tr>
+
+			<tr>
+				<td><h3>HP</h3></td>
+				<td><input type='text' name='hp' placeholder="HP"></td>
+			</tr>
+
+			<tr>
+				<td><h3>HP Regen</h3></td>
+				<td><input type='text' name='regen' placeholder="HP Regen"></td>
+			</tr>			
+
+			<tr>
+				<td><h3>Armor</h3></td>
+				<td><input type='text' name='armor' placeholder="Armor"></td>
+			</tr>
+
+			<tr>
 				<td colspan='2'><input type='submit' value='Create New Champion!' id='update'></td>
 			</tr>
 

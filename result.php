@@ -76,6 +76,7 @@
 
 	<div id='container'>
 		<p id='name'> <?php echo $value ?> </p>
+		<a href='index.php'>Back</a>
 		<a href='delete.php'>Delete</a>
 		<a href='update.php'>Update</a><br><br><br><br>
 

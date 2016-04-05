@@ -105,22 +105,22 @@
 
 			<tr>
 				<td><p class='change'>Attack Damage</p></td>
-				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['attack_damage'] ?>"></td>
+				<td><input type='text' name='damage' placeholder="Current: <?php echo $stats['attack_damage'] ?>"></td>
 			</tr>
 
 			<tr>
 				<td><p class='change'>HP</p></td>
-				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['hp'] ?>"></td>
+				<td><input type='text' name='hp' placeholder="Current: <?php echo $stats['hp'] ?>"></td>
 			</tr>
 
 			<tr>
 				<td><p class='change'>HP Regen</p></td>
-				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['hp_regen'] ?>"></td>
+				<td><input type='text' name='regen' placeholder="Current: <?php echo $stats['hp_regen'] ?>"></td>
 			</tr>			
 
 			<tr>
 				<td><p class='change'>Armor</p></td>
-				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['armor'] ?>"></td>
+				<td><input type='text' name='armor' placeholder="Current: <?php echo $stats['armor'] ?>"></td>
 			</tr>
 
 			<tr>
