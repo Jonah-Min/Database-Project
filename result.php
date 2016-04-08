@@ -23,6 +23,10 @@
 		array_push($skinnames, $row['skinname']);
 	}
 
+	$statsquery = "SELECT attack_range, attack_damage, hp, hp_regen, armor FROM stats WHERE champname='$value'";
+	$stats = mysql_query($statsquery);
+	$stats = mysql_fetch_array($stats);
+
 	$champinfo = "SELECT primaryrole, secondaryrole FROM champion WHERE champname='$value'";
 	$result = mysql_query($champinfo);
 	$info = mysql_fetch_array($result);
@@ -82,6 +86,34 @@
 
 		<span class='role'><?php echo $primary ?> </span><br>
 		<span class='role'><?php echo $secondary ?> </span>
+
+		<table id='stats'>
+
+			<tr>
+				<td colspan='2'><p class='title'>Stats</p></td>
+			</tr>
+			<tr>
+				<td><p class='statid'>Attack Range</p></td>
+				<td><p class='skillid'><?php echo $stats['attack_range']?>
+			</tr>
+			<tr>
+				<td><p class='statid'>Attack Damage</p></td>
+				<td><p class='skillid'><?php echo $stats['attack_damage']?>
+			</tr>
+			<tr>
+				<td><p class='statid'>HP</p></td>
+				<td><p class='skillid'><?php echo $stats['hp']?>
+			</tr>
+			<tr>
+				<td><p class='statid'>HP Regen</p></td>
+				<td><p class='skillid'><?php echo $stats['hp_regen']?>
+			</tr>
+			<tr>
+				<td><p class='statid'>Armor</p></td>
+				<td><p class='skillid'><?php echo $stats['armor']?>
+			</tr>
+
+		</table>
 
 		<table id='skills'>
 			<tr>
