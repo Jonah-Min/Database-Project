@@ -76,6 +76,8 @@
 
 	echo $description4 . "<br>";
 
-
+	$default = $_POST['default'];
+	
+	echo $default . "<br>";
 
 ?>
