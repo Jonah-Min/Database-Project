@@ -24,6 +24,14 @@
 	$roles = mysql_fetch_array($result);
 	$stats = mysql_fetch_array($result3);
 
+	$skillnames = array();
+	$skills = array();
+ 
+	while ($row = mysql_fetch_array($result2)) {
+		array_push($skillnames, $row['skillname']);
+		array_push($skills, $row['skilldesc']);
+	}
+
 ?>
 
 <html>
@@ -31,6 +39,37 @@
 
 	<link rel='stylesheet' href='result.css' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+	<script>
+
+		function validate() {
+
+			inputs = document.getElementsByTagName('input');
+
+			for (i = 0; i < inputs.length; ++i) {
+				if (inputs[i].name == 'attackrange' || 
+					inputs[i].name == 'damage' || 
+					inputs[i].name == 'hp' || 
+					inputs[i].name == 'regen' || 
+					inputs[i].name == 'armor') {
+					
+					var val = inputs[i].value;
+					var name = inputs[i].name;
+					Number(val);
+
+					if (val != '') {
+
+						if (isNaN(val)) {
+							alert('Attack Range, Damage, HP, HP Regen, or Armor must be a number!');
+							return false;
+						}
+
+					}
+				}
+			}
+		}
+
+	</script>
 
 	<style>
 		body {
@@ -48,7 +87,7 @@
 </head>
 <body>
 
-	<form method='post' action='newvalues.php'>
+	<form method='post' action='newvalues.php' onsubmit='return validate();'>
 
 	<div id='container'>
 		
@@ -58,6 +97,17 @@
 		</div>	
 
 		<table id='skills'>
+
+			<tr>
+
+				<td>
+					<p class='change'> Champion Name </p>
+				</td>
+				<td>
+					<input type='text' name='name' placeholder='Current: <?php echo $name ?>'>
+				</td>
+
+			</tr>
 
 			<tr>
 
@@ -79,25 +129,61 @@
 				</td>
 
 			</tr>
+			<tr>
 
-			<?php
+				<td>
+					<p class='change'>Passive</p></td>
+				</td>
+				<td>
+					<input type='text' name='passivename' placeholder="Current: <?php echo $skillnames[0] ?>"><br>
+					<textarea rows='3' cols='30' name='passivedesc' placeholder="Current: <?php echo $skills[0] ?>"></textarea><br></td>
+				</td>
 
-				while ($row = mysql_fetch_array($result2)) {
-					echo "<tr>";
-					if ($row['skillnumber'] == 0) {
-						echo "<td><p class='change'>Passive</p></td>";
-						echo "<td><input type='text' name='passivename' placeholder='Current: " . $row['skillname'] . "'><br>";
-						echo "<textarea rows='3' cols='30' name='passivedesc' placeholder='Current: " . $row['skilldesc'] . "'></textarea><br></td>";
-					} else {
-						echo "<td><p class='change'>Skill " . $row['skillnumber'] . "</p></td>";
-						echo "<td><input type='text' name='skill[]' placeholder='Current: " . $row['skillname'] . "'><br>";
-						echo "<textarea rows='3' cols='30' name='passivedesc' placeholder='Current: " . $row['skilldesc'] . "'></textarea><br></td>";
-					}
-					echo "</tr>";
-				}
+			</tr>
+			<tr>
 
-			?>
+				<td>
+					<p class='change'>Q</p></td>
+				</td>
+				<td>
+					<input type='text' name='Q' placeholder="Current: <?php echo $skillnames[1] ?>"><br>
+					<textarea rows='3' cols='30' name='Qdesc' placeholder="Current: <?php echo $skills[1] ?>"></textarea><br></td>
+				</td>
 
+			</tr>
+			<tr>
+
+				<td>
+					<p class='change'>W</p></td>
+				</td>
+				<td>
+					<input type='text' name='W' placeholder="Current: <?php echo $skillnames[2] ?>"><br>
+					<textarea rows='3' cols='30' name='Wdesc' placeholder="Current: <?php echo $skills[2] ?>"></textarea><br></td>
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<p class='change'>E</p></td>
+				</td>
+				<td>
+					<input type='text' name='E' placeholder="Current: <?php echo $skillnames[3] ?>"><br>
+					<textarea rows='3' cols='30' name='Edesc' placeholder="Current: <?php echo $skills[3] ?>"></textarea><br></td>
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<p class='change'>R</p></td>
+				</td>
+				<td>
+					<input type='text' name='R' placeholder="Current: <?php echo $skillnames[4] ?>"><br>
+					<textarea rows='3' cols='30' name='Rdesc' placeholder="Current: <?php echo $skills[4] ?>"></textarea><br></td>
+				</td>
+
+			</tr>
 			<tr>
 				<td><p class='change'>Attack Range</p></td>
 				<td><input type='text' name='attackrange' placeholder="Current: <?php echo $stats['attack_range'] ?>"></td>

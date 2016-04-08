@@ -12,6 +12,10 @@
 
 	$value = $_POST['button'];
 
+	if (is_null($value)) {
+		$value = $_SESSION['champ'];
+	}
+
 	$skinquery = "SELECT skinname, url FROM skins WHERE champname='$value'";
 	$result = mysql_query($skinquery);
 
