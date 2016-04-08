@@ -34,6 +34,11 @@
 			</tr>	
 
 			<tr>
+				<td><h3>Default Skin</h3></td>
+				<td><input type='text' name='default' placeholder='Default Skin URL'></td>
+			</tr>
+
+			<tr>
 				<td colspan='2'><h3>Passive</h3></td>
 			</tr>
 
