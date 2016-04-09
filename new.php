@@ -1,103 +1,66 @@
 <?php
 	
+	session_start();
+
+	$connect = mysql_connect('localhost', 'root', '');
+
+	if (!$connect) {
+		die('Could Not Connect: ' . mysql_error());
+	}
+
+	mysql_select_db('league');
+
 	$champname = $_POST['champion'];
-
-	echo $champname . "<br>";
-
 	$champimg = $_POST['championimg'];
-
-	echo $champimg . "<br>";
-
 	$primary = $_POST['primary'];
-
-	echo $primary . "<br>";
-
 	$secondary = $_POST['secondary'];
-
-	echo $secondary . "<br>";
+	$default = $_POST['default'];
 
 	$passive = $_POST['passive'];
-
-	echo $passive . "<br>";
-
 	$passiveimg = $_POST['passiveimg'];
-
-	echo $passiveimg . "<br>";
-
 	$passivedesc = $_POST['passivedesc'];
 
-	echo $passivedesc . "<br>";
-
 	$skill1 = $_POST['skill1'];
-
-	echo $skill1 . "<br>";
-
 	$skill1url = $_POST['skill1url'];
-
-	echo $skill1url . "<br>";
-	
 	$description1 = $_POST['description1'];
 
-	echo $description1 . "<br>";
-
 	$skill2 = $_POST['skill2'];
-
-	echo $skill2 . "<br>";
-
 	$skill2url = $_POST['skill2url'];
-
-	echo $skill2url . "<br>";
-	
 	$description2 = $_POST['description2'];
 
-	echo $description2 . "<br>";
-
 	$skill3 = $_POST['skill3'];
-
-	echo $skill3 . "<br>";
-
 	$skill3url = $_POST['skill3url'];
-
-	echo $skill3url . "<br>";
-	
 	$description3 = $_POST['description3'];
 
-	echo $description3 . "<br>";
-
 	$skill4 = $_POST['skill4'];
-
-	echo $skill4 . "<br>";
-
 	$skill4url = $_POST['skill4url'];
-
-	echo $skill4url . "<br>";
-	
 	$description4 = $_POST['description4'];
 
-	echo $description4 . "<br>";
-
-	$default = $_POST['default'];
-	
-	echo $default . "<br>";
-	
-	$attackrange = $_POST['attackrange'];
-	
-	echo $attackrange . "<br>";
-	
+	$range = $_POST['attackrange'];
 	$damage = $_POST['damage'];
-	
-	echo $damage . "<br>";
-	
 	$hp = $_POST['hp'];
-	
-	echo $hp . "<br>";
-	
 	$regen = $_POST['regen'];
-	
-	echo $regen . "<br>";
-	
 	$armor = $_POST['armor'];
-	
-	echo $armor . "<br>";
+
+
+	$query = "INSERT INTO champion (champname, primaryrole, secondaryrole, champimg) VALUES ('$champname', '$primary', '$secondary', '$champimg')";
+	$query2 = "INSERT INTO skills (champname, skillnumber, skillname, skilldesc, skillimg) VALUES ('$champname', 0, '$passive', '$passivedesc', '$passiveimg')";
+	$query3 = "INSERT INTO skills (champname, skillnumber, skillname, skilldesc, skillimg) VALUES ('$champname', 1, '$skill1', '$description1', '$skill1url')";
+	$query4 = "INSERT INTO skills (champname, skillnumber, skillname, skilldesc, skillimg) VALUES ('$champname', 2, '$skill2', '$description2', '$skill2url')";
+	$query5 = "INSERT INTO skills (champname, skillnumber, skillname, skilldesc, skillimg) VALUES ('$champname', 3, '$skill3', '$description3', '$skill3url')";
+	$query6 = "INSERT INTO skills (champname, skillnumber, skillname, skilldesc, skillimg) VALUES ('$champname', 4, '$skill4', '$description4', '$skill4url')";
+	$query7 = "INSERT INTO stats (champname, attack_range, attack_damage, hp, hp_regen, armor) VALUES ('$champname', $range, $damage, $hp, $regen, $armor)";
+	$query8 = "INSERT INTO skins (champname, skinname, url) VALUES ('$champname', 'default', '$default')";
+
+	mysql_query($query);
+	mysql_query($query2);
+	mysql_query($query3);
+	mysql_query($query4);
+	mysql_query($query5);
+	mysql_query($query6);
+	mysql_query($query7);
+	mysql_query($query8);
+
+	header("location:index.php");
 
 ?>
