@@ -47,11 +47,11 @@
 			inputs = document.getElementsByTagName('input');
 
 			for (i = 0; i < inputs.length; ++i) {
-				if (inputs[i].name == 'attackrange' || 
-					inputs[i].name == 'damage' || 
-					inputs[i].name == 'hp' || 
-					inputs[i].name == 'regen' || 
-					inputs[i].name == 'armor') {
+				if (inputs[i].name == 'attackrange'
+					|| inputs[i].name == 'damage' 
+					|| inputs[i].name == 'hp' 
+					|| inputs[i].name == 'regen'
+					|| inputs[i].name == 'armor') {
 					
 					var val = inputs[i].value;
 					var name = inputs[i].name;

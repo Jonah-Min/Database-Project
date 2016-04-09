@@ -36,6 +36,7 @@
 	$skill4url = $_POST['skill4url'];
 	$description4 = $_POST['description4'];
 
+<<<<<<< Updated upstream
 	$range = $_POST['attackrange'];
 	$damage = $_POST['damage'];
 	$hp = $_POST['hp'];
@@ -62,5 +63,32 @@
 	mysql_query($query8);
 
 	header("location:index.php");
+=======
+	echo $description4 . "<br>";
+
+	$default = $_POST['default'];
+	
+	echo $default . "<br>";
+	
+	$attackrange = $_POST['attackrange'];
+	
+	echo $attackrange . "<br>";
+	
+	$damage = $_POST['damage'];
+	
+	echo $damage . "<br>";
+	
+	$hp = $_POST['hp'];
+	
+	echo $hp . "<br>";
+	
+	$regen = $_POST['regen'];
+	
+	echo $regen . "<br>";
+	
+	$armor = $_POST['armor'];
+	
+	echo $armor . "<br>";
+>>>>>>> Stashed changes
 
 ?>

@@ -98,23 +98,23 @@
 			</tr>
 			<tr>
 				<td><p class='statid'>Attack Range</p></td>
-				<td><p class='skillid'><?php echo $stats['attack_range']?>
+				<td><p class='skillid'><?php echo $stats['attack_range']?></p></td>
 			</tr>
 			<tr>
 				<td><p class='statid'>Attack Damage</p></td>
-				<td><p class='skillid'><?php echo $stats['attack_damage']?>
+				<td><p class='skillid'><?php echo $stats['attack_damage']?></p></td>
 			</tr>
 			<tr>
 				<td><p class='statid'>HP</p></td>
-				<td><p class='skillid'><?php echo $stats['hp']?>
+				<td><p class='skillid'><?php echo $stats['hp']?></p></td>
 			</tr>
 			<tr>
 				<td><p class='statid'>HP Regen</p></td>
-				<td><p class='skillid'><?php echo $stats['hp_regen']?>
+				<td><p class='skillid'><?php echo $stats['hp_regen']?></p></td>
 			</tr>
 			<tr>
 				<td><p class='statid'>Armor</p></td>
-				<td><p class='skillid'><?php echo $stats['armor']?>
+				<td><p class='skillid'><?php echo $stats['armor']?></p></td>
 			</tr>
 
 		</table>

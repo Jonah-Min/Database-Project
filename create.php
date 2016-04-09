@@ -4,6 +4,48 @@
 	<link rel='stylesheet' href='create.css' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 
+	<script>
+
+		function validate() {
+
+			inputs = document.getElementsByTagName('input');
+
+			for (i = 0; i < inputs.length; ++i) {
+				if (inputs[i].name == 'attackrange'
+					|| inputs[i].name == 'damage' 
+					|| inputs[i].name == 'hp' 
+					|| inputs[i].name == 'regen'
+					|| inputs[i].name == 'armor') {
+					
+					var val = inputs[i].value;
+					console.log(val);
+					var name = inputs[i].name;
+					Number(val);
+
+					if (val != '') {
+
+						if (isNaN(val)) {
+							alert('Attack Range, Damage, HP, HP Regen, or Armor must be a number!');
+							return false;
+						}
+
+					}
+				}
+
+				var val = inputs[i].value;
+
+				Number(val);
+
+				if (val == '') {
+					alert('All fields must be set!');
+					return false;
+				}
+
+			}
+		}
+
+	</script>
+
 </head>
 <body>
 
@@ -11,7 +53,7 @@
 		<h1> Create New Champion </h1>
 	</div>	
 
-	<form method='post' action='new.php'>
+	<form method='post' action='new.php' onsubmit='return validate();'>
 		<table>
 			<tr>
 				<td><h3>Champion Name</h3></td>

@@ -36,13 +36,13 @@
 	} 
 
 	if (!empty($_POST['secondary'])) {
-		$primary = $_POST['primary'];
+		$secondary = $_POST['secondary'];
 		$secondary = str_replace(')', '', $secondary);
 		$secondary = str_replace('\'', '', $secondary);
 		$secondary = str_replace(';', '', $secondary);
 		$secondary = strip_tags($secondary);
 
-		$query = "UPDATE champion SET secondary='$primary' WHERE champname='$champname'";
+		$query = "UPDATE champion SET secondaryrole='$secondary' WHERE champname='$champname'";
 		mysql_query($query);
 	} 
 
